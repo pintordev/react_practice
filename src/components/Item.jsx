@@ -1,5 +1,5 @@
-function Item({ todo }) {
-  return <>{todo.text}</>;
+function Item({ todos }) {
+  return <div>{todos.text}</div>;
 }
 
 export default Item;
