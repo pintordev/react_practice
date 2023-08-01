@@ -1,6 +1,6 @@
 function Item({ todos, onDelete, onToggle }) {
   return (
-    <div>
+    <div style={{ textDecoration: todos.checked ? "line-through" : "none" }}>
       <input
         type="checkbox"
         checked={todos.checked}
