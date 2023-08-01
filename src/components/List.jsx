@@ -1,11 +1,32 @@
+import { useState } from "react";
+import Item from "./Item";
+
 function List() {
+  const [todos, setTodos] = useState([
+    {
+      id: 1,
+      text: "공부",
+      checked: true,
+    },
+    {
+      id: 2,
+      text: "운동",
+      checked: true,
+    },
+    {
+      id: 3,
+      text: "명상",
+      checked: false,
+    },
+  ]);
+
   return (
     <>
       <div>To Do List</div>
       <ul>
-        <li>아이템 1</li>
-        <li>아이템 2</li>
-        <li>아이템 3</li>
+        {todos.map((todo) => (
+          <Item key={todo.id} todo={todo} />
+        ))}
       </ul>
     </>
   );
