@@ -23,10 +23,20 @@ function App() {
     },
   ]);
 
+  const onPost = () => {
+    setTodos(
+      todos.concat({
+        id: 4,
+        text: "입력테스트",
+        checked: false,
+      })
+    );
+  };
+
   // view
   return (
     <div>
-      <Post />
+      <Post onPost={onPost} />
       <List todos={todos} />
     </div>
   );
