@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./App.css";
 import List from "./components/List";
 import Post from "./components/Post";
@@ -23,14 +23,19 @@ function App() {
     },
   ]);
 
-  const onPost = () => {
+  const nextId = useRef(4);
+
+  const onPost = (text) => {
     setTodos(
-      todos.concat({
-        id: 4,
-        text: "입력테스트",
-        checked: false,
-      })
+      todos.concat([
+        {
+          id: nextId.current,
+          text: text,
+          checked: false,
+        },
+      ])
     );
+    nextId.current++;
   };
 
   // view
